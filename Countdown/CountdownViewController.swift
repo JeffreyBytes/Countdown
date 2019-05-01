@@ -17,16 +17,26 @@ class CountdownViewController: UIViewController {
     
     let countdown = Countdown()
     
+    lazy var dateFormatter: DateFormatter = {
+        
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "HH:mm:ss.SS"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        return formatter
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         datePicker.countDownDuration = 60
         countdown.delegate = self
+        
+        timerLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timerLabel.font.pointSize, weight: .medium)
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
-        
-        print("Countdown: \(datePicker.countDownDuration)")
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
@@ -39,14 +49,26 @@ class CountdownViewController: UIViewController {
     
     private func updateViews() {
         
-        timerLabel.text = "\(countdown.timeRemaining)"
+        let date = Date(timeIntervalSinceReferenceDate: countdown.timeRemaining)
+        timerLabel.text = dateFormatter.string(from: date)
+    }
+
+    func showAlert() {
+        
+        let alert = UIAlertController(title: "Timer Finished!", message: "Your countdown is over", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
 extension CountdownViewController: CountdownDelegete {
     
     func countdownDidUpdate(timeRemaining: TimeInterval) {
-        // update the views
         updateViews()
+    }
+    
+    func countdownDidFinish() {
+        updateViews()
+        showAlert()
     }
 }

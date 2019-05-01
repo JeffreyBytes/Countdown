@@ -10,6 +10,7 @@ import Foundation
 
 protocol CountdownDelegete: AnyObject {
     func countdownDidUpdate(timeRemaining: TimeInterval)
+    func countdownDidFinish()
 }
 
 class Countdown {
@@ -34,19 +35,22 @@ class Countdown {
         self.timeRemaining = duration
         stopDate = Date(timeIntervalSinceNow: duration)
         
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(update(timer:)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(update(timer:)), userInfo: nil, repeats: true)
     }
     
     // Stop
     func stop() {
         
         stopDate = nil
+        clearTimer()
     }
     
     // Reset
     func reset() {
         
+        clearTimer()
         stopDate = nil
+        timeRemaining = 0
     }
     
     // Update timer
@@ -56,10 +60,20 @@ class Countdown {
         if let stopDate = stopDate {
             
             let currentTime = Date()
-            timeRemaining = stopDate.timeIntervalSince(currentTime)
+            
+            if currentTime <= stopDate {
+                timeRemaining = stopDate.timeIntervalSince(currentTime)
+            } else {
+                reset()
+                delegate?.countdownDidFinish()
+            }
+
             delegate?.countdownDidUpdate(timeRemaining: timeRemaining)
         }
-        
-        // TODO: stop when timer reaches 0
+    }
+    
+    private func clearTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 }

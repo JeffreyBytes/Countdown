@@ -12,6 +12,7 @@
 		731635B62279FBF4005095C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731635B52279FBF4005095C6 /* Assets.xcassets */; };
 		731635B92279FBF4005095C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731635B72279FBF4005095C6 /* LaunchScreen.storyboard */; };
 		731635C12279FF24005095C6 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731635C02279FF24005095C6 /* CountdownViewController.swift */; };
+		731635C3227A0592005095C6 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731635C2227A0592005095C6 /* Countdown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		731635B82279FBF4005095C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		731635BA2279FBF4005095C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		731635C02279FF24005095C6 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
+		731635C2227A0592005095C6 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				731635AE2279FBF0005095C6 /* AppDelegate.swift */,
 				731635C02279FF24005095C6 /* CountdownViewController.swift */,
+				731635C2227A0592005095C6 /* Countdown.swift */,
 				731635B22279FBF0005095C6 /* Main.storyboard */,
 				731635B52279FBF4005095C6 /* Assets.xcassets */,
 				731635B72279FBF4005095C6 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				731635C12279FF24005095C6 /* CountdownViewController.swift in Sources */,
 				731635AF2279FBF0005095C6 /* AppDelegate.swift in Sources */,
+				731635C3227A0592005095C6 /* Countdown.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

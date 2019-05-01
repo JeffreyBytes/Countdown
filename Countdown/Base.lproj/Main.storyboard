@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8fE-Le-S23">
                                 <rect key="frame" x="16" y="442" width="382" height="412"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="-1" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jHF-At-7mn">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="60" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jHF-At-7mn">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="578420186.33266199">
                                             <!--2019-05-01 16:16:26 +0000-->
